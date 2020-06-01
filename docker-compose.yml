@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  app1:
+    image: jmcarbo/nginx-php-fpm
+    volumes:
+      - $PWD/app1:/usr/share/nginx/html
+    ports:
+      - 1212:80
+
+  app2:
+    image: jmcarbo/nginx-php-fpm
+    volumes:
+      - $PWD/app2:/usr/share/nginx/html
+    ports:
+      - 1213:80
+  rabbitmq:
+    image: rabbitmq
+    volumes:
+      - $PWD/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+    ports:
+      - 5672:5672
